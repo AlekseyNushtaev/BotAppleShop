@@ -10,9 +10,9 @@ router: Router = Router()
 
 def keyboard_back() -> InlineKeyboardMarkup:
     """
-        Создает и возвращает клавиатуру с кнопкой назад для возврата в главное меню.
-        Returns: InlineKeyboardMarkup: Клавиатура с кнопками главного меню
-        """
+    Создает и возвращает клавиатуру с кнопкой назад для возврата в главное меню.
+    Returns: InlineKeyboardMarkup: Клавиатура с кнопками главного меню
+    """
     buttons: List[List[InlineKeyboardButton]] = [
         [InlineKeyboardButton(text="🔙 Назад", callback_data="back")]
     ]
@@ -52,9 +52,7 @@ def get_main_menu() -> InlineKeyboardMarkup:
 async def cmd_start(message: types.Message) -> None:
     """
     Обработчик команды /start. Отправляет приветственное сообщение и главное меню.
-
-    Args:
-        message (types.Message): Входящее сообщение с командой /start
+    Args: message (types.Message): Входящее сообщение с командой /start
     """
     try:
         welcome_text: str = (
@@ -71,8 +69,8 @@ async def cmd_start(message: types.Message) -> None:
 @router.callback_query(F.data == "back")
 async def process_back(callback: types.CallbackQuery) -> None:
     """
-        Возвращает пользователя в главное меню.
-        Args: callback (types.CallbackQuery): Колбэк от нажатия кнопки
+    Возвращает пользователя в главное меню.
+    Args: callback (types.CallbackQuery): Колбэк от нажатия кнопки
     """
     try:
         welcome_text: str = (
